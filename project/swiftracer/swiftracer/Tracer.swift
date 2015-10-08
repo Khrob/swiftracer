@@ -75,6 +75,28 @@ func simpleGradient (width:Int, height:Int) -> [Pixel]
     
     return buffer
 }
+
+func makeRays (width:Int, height:Int, origin:Vector, distance:Double, fov:Double) -> [Ray]
+{
+    var rays = [Ray](count:width*height, repeatedValue:Ray(origin:origin, direction:Vector(x:0, y:0, z:0)))
+    var index = 0
+    
+    repeat {
+    
+        let dx = Double(index % width - width / 2)
+        let dy = -Double(index / height - height / 2)
+        
+        rays[index].direction.x = dx
+        rays[index].direction.y = dy
+        rays[index].direction.z = distance
+        
+        index++
+        
+    } while index < width * height
+    
+    return rays
+}
+
 func simpleRaycast (rays:[Ray], width:Int, height:Int) -> [Pixel]
 {
     var pixels = Pixel.buffer(rays.count)
