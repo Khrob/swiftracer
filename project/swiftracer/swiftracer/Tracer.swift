@@ -30,6 +30,10 @@ struct Pixel
     var g:UInt8 = 0
     var b:UInt8 = 0
     
+    static func buffer (size:Int) -> [Pixel]
+    {
+        return [Pixel](count: size, repeatedValue: Pixel())
+    }
 }
 
 let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
