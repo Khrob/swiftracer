@@ -60,8 +60,8 @@ func simpleGradient (width:Int, height:Int) -> [Pixel]
     var buffer = [Pixel](count: width*height, repeatedValue: Pixel(a: 255, r: 0, g: 0, b: 0))
     var index = 0
     
-    repeat
-    {
+    repeat {
+        
         let dw = UInt8 (255 * index % width / width)
         let dh = UInt8 (255 * index / width / height)
         let dd = UInt8 (255 - dh)
@@ -70,8 +70,8 @@ func simpleGradient (width:Int, height:Int) -> [Pixel]
         buffer[index].g = dh
         buffer[index].b = dd
         index++
-    }
-        while index < width * height
+        
+    } while index < width * height
     
     return buffer
 }
