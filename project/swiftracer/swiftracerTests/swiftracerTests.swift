@@ -33,4 +33,12 @@ class swiftracerTests: XCTestCase {
         }
     }
     
+    func testDotProduct ()
+    {
+        let v1 = Vector(x: 1.0, y:0.0, z:1.0)
+        let v2 = Vector(x: 1.0, y:1.0, z:1.0)
+        
+        let dotproduct = v1 ∙ v2
+        XCTAssert(dotproduct == 2, "Works!")
+    }
 }
