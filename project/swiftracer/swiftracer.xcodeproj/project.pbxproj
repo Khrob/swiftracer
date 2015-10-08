@@ -15,6 +15,9 @@
 		1DB02D221BC4DEDC0003DC71 /* swiftracerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB02D211BC4DEDC0003DC71 /* swiftracerUITests.swift */; };
 		1DB02D301BC4DF2D0003DC71 /* Tracer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB02D2F1BC4DF2D0003DC71 /* Tracer.swift */; settings = {ASSET_TAGS = (); }; };
 		1DB02D321BC4DFAA0003DC71 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DB02D311BC4DFAA0003DC71 /* AppKit.framework */; };
+		1DB02D371BC59BD50003DC71 /* Tracer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB02D2F1BC4DF2D0003DC71 /* Tracer.swift */; settings = {ASSET_TAGS = (); }; };
+		1DB02D391BC59DE90003DC71 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB02D381BC59DE90003DC71 /* Vector.swift */; settings = {ASSET_TAGS = (); }; };
+		1DB02D3A1BC59DE90003DC71 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB02D381BC59DE90003DC71 /* Vector.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		1DB02D231BC4DEDC0003DC71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1DB02D2F1BC4DF2D0003DC71 /* Tracer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tracer.swift; sourceTree = "<group>"; };
 		1DB02D311BC4DFAA0003DC71 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		1DB02D351BC597DE0003DC71 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
+		1DB02D361BC5998A0003DC71 /* LOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = LOG.md; path = ../../LOG.md; sourceTree = "<group>"; };
+		1DB02D381BC59DE90003DC71 /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,8 +86,10 @@
 		1DB02CF81BC4DEDC0003DC71 = {
 			isa = PBXGroup;
 			children = (
-				1DB02D311BC4DFAA0003DC71 /* AppKit.framework */,
+				1DB02D351BC597DE0003DC71 /* README.md */,
+				1DB02D361BC5998A0003DC71 /* LOG.md */,
 				1DB02D031BC4DEDC0003DC71 /* swiftracer */,
+				1DB02D311BC4DFAA0003DC71 /* AppKit.framework */,
 				1DB02D151BC4DEDC0003DC71 /* swiftracerTests */,
 				1DB02D201BC4DEDC0003DC71 /* swiftracerUITests */,
 				1DB02D021BC4DEDC0003DC71 /* Products */,
@@ -103,6 +111,7 @@
 			children = (
 				1DB02D041BC4DEDC0003DC71 /* AppDelegate.swift */,
 				1DB02D2F1BC4DF2D0003DC71 /* Tracer.swift */,
+				1DB02D381BC59DE90003DC71 /* Vector.swift */,
 				1DB02D061BC4DEDC0003DC71 /* ViewController.swift */,
 				1DB02D081BC4DEDC0003DC71 /* Assets.xcassets */,
 				1DB02D0A1BC4DEDC0003DC71 /* Main.storyboard */,
@@ -260,6 +269,7 @@
 			files = (
 				1DB02D071BC4DEDC0003DC71 /* ViewController.swift in Sources */,
 				1DB02D051BC4DEDC0003DC71 /* AppDelegate.swift in Sources */,
+				1DB02D391BC59DE90003DC71 /* Vector.swift in Sources */,
 				1DB02D301BC4DF2D0003DC71 /* Tracer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,6 +278,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DB02D371BC59BD50003DC71 /* Tracer.swift in Sources */,
+				1DB02D3A1BC59DE90003DC71 /* Vector.swift in Sources */,
 				1DB02D171BC4DEDC0003DC71 /* swiftracerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
