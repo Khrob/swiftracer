@@ -26,9 +26,10 @@ struct Sample
 struct Pixel
 {
     var a:UInt8 = 255
-    var r:UInt8
-    var g:UInt8
-    var b:UInt8
+    var r:UInt8 = 0
+    var g:UInt8 = 0
+    var b:UInt8 = 0
+    
 }
 
 let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
