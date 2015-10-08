@@ -75,3 +75,53 @@ func simpleGradient (width:Int, height:Int) -> [Pixel]
     
     return buffer
 }
+func simpleRaycast (rays:[Ray], width:Int, height:Int) -> [Pixel]
+{
+    var pixels = Pixel.buffer(rays.count)
+    let plane = Plane(normal:Vector(x:0, y:1, z:0), point:Vector(x:0, y:-4, z:0))
+    
+    var index = 0
+    var max_t = 0.0
+    
+    repeat
+    {
+        if let t = plane.intersection(rays[index])
+        {
+            var inter = t * 255
+            if inter > 255 { inter = 255 }
+            let gray:UInt8 =  UInt8(255 - inter)
+            
+            pixels[index].r = gray / 2
+            pixels[index].g = gray / 2
+            pixels[index].b = gray / 2
+            
+            let p = rays[index].atT(t)
+            let x = Int(abs(p.x))
+            let y = Int(abs(p.z))
+            
+            if x % 2 == y % 2
+            {
+                pixels[index].r = gray / 4
+                pixels[index].g = gray / 4
+                pixels[index].b = gray / 4
+            }
+
+            if t > max_t { max_t = t }
+        }
+        else
+        {
+            let dw = UInt8 (255 * index % width / width)
+            let dh = UInt8 (255 * index / width / height)
+            let dd = UInt8 (255 - dh)
+            
+            pixels[index].r = dw
+            pixels[index].g = dh
+            pixels[index].b = dd
+        }
+        index++
+        
+    } while index < rays.count
+    
+    print ("max_t: \(max_t)")
+    return pixels
+}
