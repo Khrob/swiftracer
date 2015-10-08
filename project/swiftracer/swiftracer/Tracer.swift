@@ -57,7 +57,7 @@ func imageFromARGB32Bitmap(pixels:[Pixel], width:Int, height:Int) -> NSImage?
 
 func simpleGradient (width:Int, height:Int) -> [Pixel]
 {
-    var buffer = [Pixel](count: width*height, repeatedValue: Pixel(a: 255, r: 0, g: 0, b: 0))
+    var buffer = Pixel.buffer(width * height)
     var index = 0
     
     repeat {
