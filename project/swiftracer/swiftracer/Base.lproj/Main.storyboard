@@ -672,20 +672,64 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BNZ-9G-rnc" customClass="BackgroundImage" customModule="swiftracer" customModuleProvider="target">
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="BNZ-9G-rnc" customClass="BackgroundImage" customModule="swiftracer" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                                 <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="axesIndependently" id="iLi-67-QDZ"/>
                             </imageView>
+                            <slider horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JNl-qM-POh">
+                                <rect key="frame" x="442" y="17" width="20" height="235"/>
+                                <sliderCell key="cell" alignment="left" minValue="-100" maxValue="100" doubleValue="-30" tickMarkPosition="right" sliderType="linear" id="8xL-df-2nD"/>
+                                <connections>
+                                    <action selector="uiChanged:" target="XfG-lQ-9wD" id="AdA-uU-oSX"/>
+                                </connections>
+                            </slider>
+                            <slider horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2pn-hW-uWn">
+                                <rect key="frame" x="418" y="17" width="20" height="235"/>
+                                <sliderCell key="cell" alignment="left" minValue="-100" maxValue="100" tickMarkPosition="right" sliderType="linear" id="DR1-BZ-bZm"/>
+                                <connections>
+                                    <action selector="uiChanged:" target="XfG-lQ-9wD" id="Lar-bC-dgN"/>
+                                </connections>
+                            </slider>
+                            <slider horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YFD-bn-oYX">
+                                <rect key="frame" x="394" y="17" width="20" height="235"/>
+                                <sliderCell key="cell" alignment="left" minValue="-100" maxValue="100" doubleValue="40" tickMarkPosition="right" sliderType="linear" id="S07-N5-rfR"/>
+                                <connections>
+                                    <action selector="uiChanged:" target="XfG-lQ-9wD" id="VSY-dn-4io"/>
+                                </connections>
+                            </slider>
+                            <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nNc-AQ-J0E">
+                                <rect key="frame" x="18" y="18" width="372" height="20"/>
+                                <sliderCell key="cell" state="on" alignment="left" minValue="-100" maxValue="100" doubleValue="30" tickMarkPosition="above" sliderType="linear" id="ero-Dc-wJh"/>
+                                <connections>
+                                    <action selector="uiChanged:" target="XfG-lQ-9wD" id="6GE-c4-Gn1"/>
+                                </connections>
+                            </slider>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="YFD-bn-oYX" firstAttribute="leading" secondItem="nNc-AQ-J0E" secondAttribute="trailing" constant="8" id="BJ1-OG-K9D"/>
+                            <constraint firstAttribute="bottom" secondItem="2pn-hW-uWn" secondAttribute="bottom" constant="20" id="CK8-wT-aCr"/>
+                            <constraint firstAttribute="bottom" secondItem="JNl-qM-POh" secondAttribute="bottom" constant="20" id="DoM-0S-XTK"/>
+                            <constraint firstItem="nNc-AQ-J0E" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="H1p-ub-nAm"/>
+                            <constraint firstItem="YFD-bn-oYX" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="JTN-nr-WQT"/>
                             <constraint firstAttribute="trailing" secondItem="BNZ-9G-rnc" secondAttribute="trailing" id="OZc-6a-IEP"/>
+                            <constraint firstAttribute="bottom" secondItem="YFD-bn-oYX" secondAttribute="bottom" constant="20" id="WaU-Ly-f4I"/>
+                            <constraint firstItem="2pn-hW-uWn" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="WjQ-8W-vvC"/>
+                            <constraint firstAttribute="trailing" secondItem="JNl-qM-POh" secondAttribute="trailing" constant="20" id="ZLm-fy-cI5"/>
+                            <constraint firstAttribute="bottom" secondItem="nNc-AQ-J0E" secondAttribute="bottom" constant="20" id="aGk-bU-0Vr"/>
                             <constraint firstItem="BNZ-9G-rnc" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="hBZ-dT-Mfw"/>
                             <constraint firstAttribute="bottom" secondItem="BNZ-9G-rnc" secondAttribute="bottom" id="i5t-Ig-EKw"/>
                             <constraint firstItem="BNZ-9G-rnc" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="laV-hc-XMb"/>
+                            <constraint firstItem="2pn-hW-uWn" firstAttribute="leading" secondItem="YFD-bn-oYX" secondAttribute="trailing" constant="8" id="oie-r7-QOu"/>
+                            <constraint firstItem="JNl-qM-POh" firstAttribute="leading" secondItem="2pn-hW-uWn" secondAttribute="trailing" constant="8" id="trI-FB-XQ8"/>
+                            <constraint firstItem="JNl-qM-POh" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="ydJ-bD-4Qg"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="distanceSlider" destination="nNc-AQ-J0E" id="7oz-cC-NQB"/>
                         <outlet property="image" destination="BNZ-9G-rnc" id="6GU-XX-pkg"/>
+                        <outlet property="xSlider" destination="YFD-bn-oYX" id="oEe-X8-x2x"/>
+                        <outlet property="ySlider" destination="2pn-hW-uWn" id="s0O-Gb-jv3"/>
+                        <outlet property="zSlider" destination="JNl-qM-POh" id="8K5-kf-hZW"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
