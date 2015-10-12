@@ -25,7 +25,8 @@ class ViewController: NSViewController
     {
         print ("Redrawing (\(xSlider.doubleValue),\(ySlider.doubleValue),\(zSlider.doubleValue)) \(distanceSlider.doubleValue)")
         let rays = makeRays(width, height: height, origin: Vector(x:xSlider.doubleValue, y:ySlider.doubleValue, z:zSlider.doubleValue), distance: distanceSlider.doubleValue, fov: 90.0)
-        let buffer = simpleRaycast(rays, width:width, height:height)
+        //let buffer = simpleRaycast(rays, width:width, height:height)
+        let buffer = simpleScene(Cornell, rays: rays, width: width, height: height)
         let gradient = imageFromARGB32Bitmap (buffer, width:width, height:height)
         
         image.image = gradient
