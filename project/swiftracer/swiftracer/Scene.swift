@@ -117,4 +117,11 @@ class Plane : STObject
     {
         return normal
     }
+    
+    init (ox:Double, oy:Double, oz:Double, nx:Double, ny:Double, nz:Double)
+    {
+        super.init()
+        point = Vector(x: ox, y: oy, z: oz)
+        normal = Vector(x: nx, y: ny, z: nz)
+    }
 }
