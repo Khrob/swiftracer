@@ -24,17 +24,21 @@ struct Vector
         let mag = sqrt(magnitudeSquared())
         return Vector(x: x/mag, y:y/mag, z:z/mag)
     }
-    
-    func minus (v2:Vector) -> Vector
-    {
-        return Vector(x: x-v2.x, y: y-v2.y, z: z-v2.z)
-    }
 }
 
 infix operator ∙ { associativity left precedence 140 }
 func ∙ (v1:Vector, v2:Vector) -> Double
 {
     return v1.x * v2.x + v1.y * v2.y + v1.z * v2.z
+}
+
+/** 
+    I'll admit, I'm hesitant to overload this, but I think 
+    it makes sense for vectors.
+**/
+func - (left:Vector, right:Vector) -> Vector
+{
+    return Vector (x: left.x-right.x, y: left.y-right.y, z: left.z-right.z)
 }
 
 struct Plane
@@ -49,26 +53,35 @@ struct Plane
         // Negative denomenator - no intersection
         if abs(denom) > 0.000001
         {
-            let r = point.minus(ray.origin)
+            let r = point - ray.origin
             let numer = r ∙ normal
             
             let t = numer / denom
             
             if t > 0
             {
-                //print ("t: \(t)")
                 return t
             }
         }
         return nil
     }
     
-    func intersectionPoint(ray:Ray) -> Vector?
+    func intersectionPoint (ray:Ray) -> Vector?
     {
         if let t = intersection(ray) {
             return ray.atT(t)
         }
         return nil
+    }
+    
+    /**
+        If there's an intersection, returns a vector marking the 
+        point at which the ray hit the plane and the normal at that point
+    **/
+    func intersectionVector (ray:Ray) -> Ray?
+    {
+        guard let t = intersectionPoint(ray) else { return nil }
+        return Ray(origin: t, direction: normal)
     }
 }
 
