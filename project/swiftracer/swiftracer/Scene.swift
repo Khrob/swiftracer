@@ -125,3 +125,11 @@ class Plane : STObject
         normal = Vector(x: nx, y: ny, z: nz)
     }
 }
+
+let Cornell:[STObject] = [
+    Plane(ox:   0.0, oy:  0.0, oz:  0.0, nx:  0.0, ny:  1.0, nz:  0.0),
+    Plane(ox: -10.0, oy:  0.0, oz:  0.0, nx:  1.0, ny:  0.0, nz:  0.0),
+    Plane(ox:  10.0, oy:  0.0, oz:  0.0, nx: -1.0, ny:  0.0, nz:  0.0),
+    Plane(ox:   0.0, oy: 20.0, oz:  0.0, nx:  0.0, ny: -1.0, nz:  0.0),
+    Plane(ox:   0.0, oy: 20.0, oz: 20.0, nx:  0.0, ny:  0.0, nz: -1.0)
+]
