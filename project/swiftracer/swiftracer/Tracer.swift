@@ -147,3 +147,66 @@ func simpleRaycast (rays:[Ray], width:Int, height:Int) -> [Pixel]
     print ("max_t: \(max_t)")
     return pixels
 }
+
+func simpleScene (scene:[STObject], rays:[Ray], width:Int, height:Int) -> [Pixel]
+{
+    var pixels = Pixel.buffer(rays.count)
+    var index = 0
+    var max_t = 0.0
+    
+    repeat
+    {
+        var t:Double = Double.infinity
+        
+        // For every object we have...
+        for obj in scene
+        {
+            // ... if there's an intersection...
+            if let newT = obj.intersection(rays[index]) {
+    
+                // ... and it's closer than one we've seen...
+                if newT < t
+                {
+                    // ... remember it...
+                    t = newT
+                    
+                    // ... and get a colour for it.
+                    var inter = t * 255
+                    if inter > 255 { inter = 255 }
+                    let gray:UInt8 =  UInt8(255 - inter)
+                    
+                    pixels[index].r = gray / 2
+                    pixels[index].g = gray / 2
+                    pixels[index].b = gray / 2
+                }
+                
+                if t > max_t { max_t = t }
+            }
+        }
+        
+        if t > Double.infinity - 10.0
+        {
+            //Background gradient
+            let dw = UInt8 (255 * index % width / width)
+            let dh = UInt8 (255 * index / width / height)
+            let dd = UInt8 (255 - dh)
+
+            pixels[index].r = dw
+            pixels[index].g = dh
+            pixels[index].b = dd
+        }
+    
+        index++
+    
+    } while index < rays.count
+    
+    print("max_t: \(max_t)")
+    
+    return pixels
+}
+
+
+
+
+
+
