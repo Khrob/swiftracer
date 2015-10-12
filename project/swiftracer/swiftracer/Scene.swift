@@ -37,6 +37,9 @@ class Sphere : STObject
     var centre:Vector = Vector(x: 0.0, y: 0.0, z: 0.0)
     var radius:Double = 1.0
     
+    /** 
+        Currently using a geometric solver. 
+    **/
     override func intersection (ray: Ray) -> Double?
     {
         let rayToCenter = centre - ray.origin
@@ -47,6 +50,21 @@ class Sphere : STObject
         {
             return nil
         }
+        
+        let radiusSquared = radius * radius
+        let d2 = rayToCenter ∙ rayToCenter - timeAtProjection * timeAtProjection
+        
+        if d2 > radiusSquared
+        {
+            return nil
+        }
+        
+        let dt = sqrt(radiusSquared - d2)
+        let t0 = timeAtProjection + dt
+        let t1 = timeAtProjection - dt
+        
+        if t0 > 0 && t0 > t1 { return t0 }
+        if t1 > 0 && t1 > t0 { return t1 }
         
         return nil
     }
