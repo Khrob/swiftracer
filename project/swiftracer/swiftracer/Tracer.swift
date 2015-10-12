@@ -100,7 +100,9 @@ func makeRays (width:Int, height:Int, origin:Vector, distance:Double, fov:Double
 func simpleRaycast (rays:[Ray], width:Int, height:Int) -> [Pixel]
 {
     var pixels = Pixel.buffer(rays.count)
-    let plane = Plane(normal:Vector(x:0, y:1, z:0), point:Vector(x:0, y:-4, z:0))
+    let plane =  Plane()
+    plane.normal = Vector(x:0, y:1, z:0)
+    plane.point = Vector(x:0, y:-4, z:0)
     
     var index = 0
     var max_t = 0.0

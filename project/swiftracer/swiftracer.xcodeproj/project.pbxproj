@@ -18,6 +18,8 @@
 		1DB02D371BC59BD50003DC71 /* Tracer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB02D2F1BC4DF2D0003DC71 /* Tracer.swift */; settings = {ASSET_TAGS = (); }; };
 		1DB02D391BC59DE90003DC71 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB02D381BC59DE90003DC71 /* Vector.swift */; settings = {ASSET_TAGS = (); }; };
 		1DB02D3A1BC59DE90003DC71 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB02D381BC59DE90003DC71 /* Vector.swift */; settings = {ASSET_TAGS = (); }; };
+		B94D7DC31BCC693D00CCF8A2 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94D7DC21BCC693D00CCF8A2 /* Scene.swift */; settings = {ASSET_TAGS = (); }; };
+		B94D7DC41BCC765100CCF8A2 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B94D7DC21BCC693D00CCF8A2 /* Scene.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,7 @@
 		1DB02D351BC597DE0003DC71 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 		1DB02D361BC5998A0003DC71 /* LOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = LOG.md; path = ../../LOG.md; sourceTree = "<group>"; };
 		1DB02D381BC59DE90003DC71 /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
+		B94D7DC21BCC693D00CCF8A2 /* Scene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				1DB02D041BC4DEDC0003DC71 /* AppDelegate.swift */,
+				B94D7DC21BCC693D00CCF8A2 /* Scene.swift */,
 				1DB02D2F1BC4DF2D0003DC71 /* Tracer.swift */,
 				1DB02D381BC59DE90003DC71 /* Vector.swift */,
 				1DB02D061BC4DEDC0003DC71 /* ViewController.swift */,
@@ -269,6 +273,7 @@
 			files = (
 				1DB02D071BC4DEDC0003DC71 /* ViewController.swift in Sources */,
 				1DB02D051BC4DEDC0003DC71 /* AppDelegate.swift in Sources */,
+				B94D7DC31BCC693D00CCF8A2 /* Scene.swift in Sources */,
 				1DB02D391BC59DE90003DC71 /* Vector.swift in Sources */,
 				1DB02D301BC4DF2D0003DC71 /* Tracer.swift in Sources */,
 			);
@@ -278,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B94D7DC41BCC765100CCF8A2 /* Scene.swift in Sources */,
 				1DB02D371BC59BD50003DC71 /* Tracer.swift in Sources */,
 				1DB02D3A1BC59DE90003DC71 /* Vector.swift in Sources */,
 				1DB02D171BC4DEDC0003DC71 /* swiftracerTests.swift in Sources */,
@@ -494,6 +500,7 @@
 				1DB02D281BC4DEDC0003DC71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1DB02D291BC4DEDC0003DC71 /* Build configuration list for PBXNativeTarget "swiftracerTests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +509,7 @@
 				1DB02D2B1BC4DEDC0003DC71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1DB02D2C1BC4DEDC0003DC71 /* Build configuration list for PBXNativeTarget "swiftracerUITests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +518,7 @@
 				1DB02D2E1BC4DEDC0003DC71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
