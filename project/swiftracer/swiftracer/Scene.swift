@@ -74,6 +74,15 @@ class Sphere : STObject
         return t0
     }
     
+    init (x:Double, y:Double, z:Double, r:Double)
+    {
+        super.init ()
+        
+        centre = Vector (x: x, y: y, z: z)
+        radius = r
+        radiusSquared = r * r
+    }
+    
     convenience init (x:Double, y:Double, z:Double, rad:Double, r:Double, g:Double, b:Double, e:Double, name:String)
     {
         self.init (x:x, y:y, z:z, r:rad)
