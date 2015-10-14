@@ -46,4 +46,9 @@ struct Ray
     {
         return Vector (x:origin.x+direction.x*t, y:origin.y+direction.y*t, z:origin.z+direction.z*t)
     }
+    
+    func description () -> String
+    {
+        return "[\(origin.x),\(origin.y),\(origin.z) - \(direction.x),\(direction.y),\(direction.z)]"
+    }
 }
