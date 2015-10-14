@@ -678,14 +678,14 @@
                             </imageView>
                             <slider horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JNl-qM-POh">
                                 <rect key="frame" x="442" y="17" width="20" height="235"/>
-                                <sliderCell key="cell" alignment="left" minValue="-100" maxValue="100" tickMarkPosition="right" sliderType="linear" id="8xL-df-2nD"/>
+                                <sliderCell key="cell" alignment="left" minValue="-100" maxValue="100" doubleValue="-5" tickMarkPosition="right" sliderType="linear" id="8xL-df-2nD"/>
                                 <connections>
                                     <action selector="uiChanged:" target="XfG-lQ-9wD" id="AdA-uU-oSX"/>
                                 </connections>
                             </slider>
                             <slider horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2pn-hW-uWn">
                                 <rect key="frame" x="418" y="17" width="20" height="235"/>
-                                <sliderCell key="cell" alignment="left" minValue="-100" maxValue="100" doubleValue="10" tickMarkPosition="right" sliderType="linear" id="DR1-BZ-bZm"/>
+                                <sliderCell key="cell" alignment="left" minValue="-100" maxValue="100" tickMarkPosition="right" sliderType="linear" id="DR1-BZ-bZm"/>
                                 <connections>
                                     <action selector="uiChanged:" target="XfG-lQ-9wD" id="Lar-bC-dgN"/>
                                 </connections>
@@ -699,7 +699,7 @@
                             </slider>
                             <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nNc-AQ-J0E">
                                 <rect key="frame" x="18" y="18" width="372" height="20"/>
-                                <sliderCell key="cell" state="on" alignment="left" minValue="-100" maxValue="100" doubleValue="30" tickMarkPosition="above" sliderType="linear" id="ero-Dc-wJh"/>
+                                <sliderCell key="cell" state="on" alignment="left" minValue="-100" maxValue="100" doubleValue="100" tickMarkPosition="above" sliderType="linear" id="ero-Dc-wJh"/>
                                 <connections>
                                     <action selector="uiChanged:" target="XfG-lQ-9wD" id="6GE-c4-Gn1"/>
                                 </connections>
