@@ -42,7 +42,7 @@ struct Ray
     var origin:Vector
     var direction:Vector
     
-    func atT (t:Double) -> Vector
+    func t (t:Double) -> Vector
     {
         return Vector (x:origin.x+direction.x*t, y:origin.y+direction.y*t, z:origin.z+direction.z*t)
     }
