@@ -127,7 +127,7 @@ func simpleRaycast (rays:[Ray], width:Int, height:Int) -> [Pixel]
             pixels[index].g = gray / 2
             pixels[index].b = gray / 2
             
-            let p = rays[index].atT(t)
+            let p = rays[index].t(t)
             let x = Int(abs(p.x))
             let y = Int(abs(p.z))
             
