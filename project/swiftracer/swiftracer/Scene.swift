@@ -15,13 +15,9 @@ class STObject
     var emission:Double = 0.0
     var name:String = ""
     
-    /**
-        Returns the normal at the point the ray intersects
-        the object, or nil if there is no intersection
-    **/
-    func normalAtRay (ray:Ray) -> Vector?
+    func normalAtPoint (pt:Vector) -> Vector
     {
-        return nil
+        return Vector()
     }
     
     /**
@@ -72,6 +68,13 @@ class Sphere : STObject
             }
         }
         return t0
+    }
+    
+    override func normalAtPoint (point:Vector) -> Vector
+    {
+        // division by radius should make this a unit vector, as long
+        // as the point actually lies on the surface of the sphere
+        return Vector(x:(point.x-centre.x)/radius, y:(point.y-centre.y)/radius, z: (point.z-centre.z)/radius)
     }
     
     init (x:Double, y:Double, z:Double, r:Double)
@@ -135,7 +138,7 @@ class Plane : STObject
         return nil
     }
     
-    override func normalAtRay (ray:Ray) -> Vector
+    override func normalAtPoint (point:Vector) -> Vector
     {
         return normal
     }
