@@ -158,6 +158,31 @@ func simpleRaycast (rays:[Ray], width:Int, height:Int) -> [Pixel]
     return pixels
 }
 
+func intersection (scene:[STObject], ray:Ray) -> (point:Ray, obj:STObject)?
+{
+    var t:Double = Double.infinity
+    var hit:STObject?
+    
+    for obj in scene
+    {
+        if let newT = obj.intersection(ray)
+        {
+            if newT < t && t > 0.00001
+            {
+                hit = obj
+                t = newT
+            }
+        }
+    }
+    
+    if t == Double.infinity { return nil }
+    
+    let pt = ray.t(t)
+    let normal = hit!.normalAtPoint(pt)
+    let r = Ray(origin:pt, direction:normal)
+    return (r, hit!)
+}
+
 func simpleScene (scene:[STObject], rays:[Ray], width:Int, height:Int) -> [Pixel]
 {
     var pixels = Pixel.buffer(rays.count)
