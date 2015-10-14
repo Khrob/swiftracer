@@ -187,60 +187,32 @@ func simpleScene (scene:[STObject], rays:[Ray], width:Int, height:Int) -> [Pixel
 {
     var pixels = Pixel.buffer(rays.count)
     var index = 0
-    var max_t = 0.0
     
     repeat
     {
-        var t:Double = Double.infinity
+        let s = trace(scene, ray: rays[index], depth: 0, colour: Sample())
         
-        // For every object we have...
-        for obj in scene
-        {
-            // ... if there's an intersection...
-            if let newT = obj.intersection(rays[index]) {
-    
-                // ... and it's closer than one we've seen...
-                if newT < t
-                {
-                    // ... remember it...
-                    t = newT
-                    
-                    // ... and get a colour for it.
-                    var inter = t * 255
-                    if inter > 255 { inter = 255 }
-                    let gray:UInt8 =  UInt8(255 - inter)
-                    
-                    pixels[index].r = gray / 2
-                    pixels[index].g = gray / 2
-                    pixels[index].b = gray / 2
-                }
-                
-                if t > max_t { max_t = t }
-            }
-        }
+        var r = s.r * 255
+        var g = s.g * 255
+        var b = s.b * 255
         
-        if t > Double.infinity - 10.0
-        {
-            //Background gradient
-            let dw = UInt8 (255 * index % width / width)
-            let dh = UInt8 (255 * index / width / height)
-            let dd = UInt8 (255 - dh)
-
-            pixels[index].r = dw
-            pixels[index].g = dh
-            pixels[index].b = dd
-        }
+        if r > 255 { r = 255 }
+        if g > 255 { g = 255 }
+        if b > 255 { b = 255 }
     
+        pixels[index] = Pixel(a: 255, r:UInt8(r), g:UInt8(g), b:UInt8(b))
+        
+//        print("\(s) \(pixels[index])")
+        
         index++
     
     } while index < rays.count
-    
-    print("max_t: \(max_t)")
     
     return pixels
 }
 
 let BOUNCES = 10.0
+
 func trace (scene:[STObject], ray:Ray, depth:Int, var colour:Sample) -> Sample
 {
     if depth > Int(BOUNCES-1)
@@ -261,4 +233,3 @@ func trace (scene:[STObject], ray:Ray, depth:Int, var colour:Sample) -> Sample
 //    print("returning \(colour) \(depth)")
     return trace(scene, ray:hit.point, depth:depth+1, colour:colour)
 }
-
