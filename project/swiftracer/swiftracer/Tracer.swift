@@ -84,20 +84,25 @@ func simpleGradient (width:Int, height:Int) -> [Pixel]
 func makeRays (width:Int, height:Int, origin:Vector, distance:Double, fov:Double) -> [Ray]
 {
     var rays = [Ray](count:width*height, repeatedValue:Ray(origin:origin, direction:Vector(x:0, y:0, z:0)))
+    
     var index = 0
     
-    repeat {
-    
-        let dx = Double(index % width - width / 2)
-        let dy = -Double(index / height - height / 2)
+    for h in 0..<height {
         
-        rays[index].direction.x = dx
-        rays[index].direction.y = dy
-        rays[index].direction.z = distance
+        let dy = Double(height/2 - h)
         
-        index++
+        for w in 0..<width {
         
-    } while index < width * height
+            let dx = Double(w - width/2)
+            
+            rays[index].direction.x = dx
+            rays[index].direction.y = dy
+            rays[index].direction.z = distance
+            
+            rays[index].direction = rays[index].direction.unit()
+            index++
+        }
+    }
     
     return rays
 }
