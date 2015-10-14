@@ -44,31 +44,36 @@ class Sphere : STObject
     **/
     override func intersection (ray: Ray) -> Double?
     {
-        let rayToCenter = centre - ray.origin
-        let timeAtProjection = rayToCenter ∙ ray.direction
+        let L = centre - ray.origin
+        let tca = L ∙ ray.direction
         
         // Early out
-        if timeAtProjection < 0
-        {
-            return nil
+        if tca < 0 { return nil }
+        
+        let d2 = L ∙ L - tca * tca
+        
+        if d2 > radiusSquared { return nil }
+        
+        let thc = sqrt(radiusSquared - d2)
+        var t0 = tca + thc
+        var t1 = tca - thc
+        
+        if t0 > t1 {
+            let tmp = t0
+            t0 = t1
+            t1 = tmp
         }
         
-        let radiusSquared = radius * radius
-        let d2 = rayToCenter ∙ rayToCenter - timeAtProjection * timeAtProjection
-        
-        if d2 > radiusSquared
-        {
-            return nil
+        if t0 < 0 {
+            t0 = t1
+            if t0 < 0
+            {
+                return nil
+            }
         }
-        
-        let dt = sqrt(radiusSquared - d2)
-        let t0 = timeAtProjection + dt
-        let t1 = timeAtProjection - dt
-        
-        if t0 > 0 && t0 > t1 { return t0 }
-        if t1 > 0 && t1 > t0 { return t1 }
-        
-        return nil
+        return t0
+    }
+    
     convenience init (x:Double, y:Double, z:Double, rad:Double, r:Double, g:Double, b:Double, e:Double, name:String)
     {
         self.init (x:x, y:y, z:z, r:rad)
