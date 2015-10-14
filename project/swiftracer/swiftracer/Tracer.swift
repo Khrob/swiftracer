@@ -17,10 +17,15 @@ import CoreGraphics
 
 struct Sample
 {
-    let r:Double
-    let g:Double
-    let b:Double
-    let a:Double
+    var r:Double = 0.0
+    var g:Double = 0.0
+    var b:Double = 0.0
+    var a:Double = 1.0
+    
+    static func buffer (size:Int) -> [Sample]
+    {
+        return [Sample](count: size, repeatedValue: Sample())
+    }
 }
 
 struct Pixel
