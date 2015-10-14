@@ -240,8 +240,25 @@ func simpleScene (scene:[STObject], rays:[Ray], width:Int, height:Int) -> [Pixel
     return pixels
 }
 
-
-
-
-
+let BOUNCES = 10.0
+func trace (scene:[STObject], ray:Ray, depth:Int, var colour:Sample) -> Sample
+{
+    if depth > Int(BOUNCES-1)
+    {
+//        print("depth5 \(colour) \(depth)")
+        return colour
+    }
+    
+    guard let hit = intersection(scene, ray: ray) else {
+//        print("nohit \(colour) \(depth)")
+        return colour
+    }
+    
+    colour.r += hit.obj.diffuse.x / BOUNCES
+    colour.g += hit.obj.diffuse.y / BOUNCES
+    colour.b += hit.obj.diffuse.z / BOUNCES
+    
+//    print("returning \(colour) \(depth)")
+    return trace(scene, ray:hit.point, depth:depth+1, colour:colour)
+}
 
