@@ -20,10 +20,6 @@ class STObject
         return Vector()
     }
     
-    /**
-        Return the time t that the ray first intersects the 
-        object, or nil if no hit occurs
-    **/
     func intersection (ray:Ray) -> Double?
     {
         return nil
@@ -34,6 +30,7 @@ class Sphere : STObject
 {
     var centre:Vector = Vector(x: 0.0, y: 0.0, z: 0.0)
     var radius:Double = 1.0
+    var radiusSquared:Double = 1.0
     
     /** 
         Currently using a geometric solver. 
@@ -133,7 +130,7 @@ class Plane : STObject
     func intersectionPoint(ray:Ray) -> Vector?
     {
         if let t = intersection(ray) {
-            return ray.atT(t)
+            return ray.t(t)
         }
         return nil
     }
