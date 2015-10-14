@@ -12,6 +12,8 @@ class STObject
 {
     var diffuse:Vector = Vector(x:0.5,y:0.5,z:0.5)
     var specular:Double = 0.5
+    var emission:Double = 0.0
+    var name:String = ""
     
     /**
         Returns the normal at the point the ray intersects
@@ -67,6 +69,12 @@ class Sphere : STObject
         if t1 > 0 && t1 > t0 { return t1 }
         
         return nil
+    convenience init (x:Double, y:Double, z:Double, rad:Double, r:Double, g:Double, b:Double, e:Double, name:String)
+    {
+        self.init (x:x, y:y, z:z, r:rad)
+        self.name = name
+        self.diffuse = Vector(x: r, y: g, z: b)
+        self.emission = e
     }
 }
 
@@ -124,12 +132,21 @@ class Plane : STObject
         point = Vector(x: ox, y: oy, z: oz)
         normal = Vector(x: nx, y: ny, z: nz)
     }
+    
+    convenience init (ox:Double, oy:Double, oz:Double, nx:Double, ny:Double, nz:Double, r:Double, g:Double, b:Double, e:Double, name:String)
+    {
+        self.init (ox:ox, oy:oy, oz:oz, nx:nx, ny:ny, nz:nz)
+        self.name = name
+        self.emission = e
+        self.diffuse = Vector(x: r, y: g, z: b)
+    }
 }
 
 let Cornell:[STObject] = [
-    Plane(ox:   0.0, oy:  0.0, oz:  0.0, nx:  0.0, ny:  1.0, nz:  0.0),
-    Plane(ox: -10.0, oy:  0.0, oz:  0.0, nx:  1.0, ny:  0.0, nz:  0.0),
-    Plane(ox:  10.0, oy:  0.0, oz:  0.0, nx: -1.0, ny:  0.0, nz:  0.0),
-    Plane(ox:   0.0, oy: 20.0, oz:  0.0, nx:  0.0, ny: -1.0, nz:  0.0),
-    Plane(ox:   0.0, oy: 20.0, oz: 20.0, nx:  0.0, ny:  0.0, nz: -1.0)
+    Plane(ox:   0.0, oy:   0.0, oz:  0.0, nx:  0.0, ny:  1.0, nz:  0.0, r:0.5,  g:0.75, b:0.5,  e:0.5, name: "floor"),
+    Plane(ox: -10.0, oy:   0.0, oz:  0.0, nx:  1.0, ny:  0.0, nz:  0.0, r:0.5,  g:0.5,  b:0.75, e:0.0, name: "leftwall"),
+    Plane(ox:  10.0, oy:   0.0, oz:  0.0, nx: -1.0, ny:  0.0, nz:  0.0, r:0.75, g:0.5,  b:0.5,  e:0.0, name: "rightwall"),
+    Plane(ox:   0.0, oy:  20.0, oz:  0.0, nx:  0.0, ny: -1.0, nz:  0.0, r:0.75, g:0.75, b:0.5,  e:0.0, name: "ceiling"),
+    Plane(ox:   0.0, oy:  20.0, oz: 20.0, nx:  0.0, ny:  0.0, nz: -1.0, r:0.5,  g:0.75, b:0.75, e:0.0, name: "backwall"),
+    Sphere(x: 0, y: 2, z: 0, rad: 2, r:1.0, g:1.0, b:1.0, e:0.0, name: "sphere")
 ]
